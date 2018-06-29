@@ -47,7 +47,7 @@ FibΠid {A} {B} α β e p φ f g = (g₁ , extends) where
   b₀ a = (fst g (pₐ a ⟨ e ⟩) , (λ u → cong (λ f → f (pₐ a ⟨ e ⟩)) (snd g u)))
   abstract
     g₁ : (Π' A B) (p ⟨ ! e ⟩)
-    g₁ a = let b = fst (β e (q a) φ (f' a) (b₀ a)) in subst (λ a → B (p ⟨ ! e ⟩ , a)) (pₐI≡a a) b where
+    g₁ a = let b = fst (β e (q a) φ (f' a) (b₀ a)) in subst (λ a → B (p ⟨ ! e ⟩ , a)) (pₐI≡a a) b
   abstract
    extends : prf ((φ , f) ∙ ⟨ ! e ⟩ ↗ g₁)
    extends u = funext (λ a → substLemma (pₐI≡a a) (trans (f'I≡g₁ a) (fI≡f'I a))) where

@@ -63,7 +63,8 @@ abstract
   let ((A' , α') , iso' , reindex= , iso'-ext) = FibFix {Φ = Φ} A (B , β) iso in
   proof:
     fst (α' e p cofFalse ∅-elim (a , λ()))
-      ≡[ cong (λ α'ep → fst (α'ep cofFalse ∅-elim (a , λ()))) (sameOtherwise _ _ e p ¬∀Φ) ]≡
+      ≡[ cong {A = (ψ : Cof)(f : [ ψ ] → Π (A' ∘ p)) → (⟦ a₀ ∈ A' (p ⟨ e ⟩) ∣ (ψ , f) ∙ ⟨ e ⟩ ↗ a₀ ⟧) → ⟦ a₁ ∈ A' (p ⟨ ! e ⟩) ∣ (ψ , f) ∙ ⟨ ! e ⟩ ↗ a₁ ⟧}
+           {B = A' (p ⟨ ! e ⟩)} (λ α'ep → fst (α'ep cofFalse ∅-elim (a , λ()))) (sameOtherwise _ (FibIso A' B iso' β) e p ¬∀Φ) ]≡
     fst (FibIso A' B iso' β e p cofFalse ∅-elim (a , λ()))
       ≡[ FibIsoβ A' B iso' β e p a ]≡
     _
